@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib
 
 #setting for plotting
 plt.style.use('ggplot')
@@ -35,6 +36,7 @@ count_deficit(train)
 #SEX Male → 0 Female → 1
 #Embarked S → 0 Q → 1 C → 2
 #test
+
 test["Sex"][test["Sex"] == "Male"] = 0
 test["Sex"][test["Sex"] == "Female"] = 1
 test["Embarked"][test["Embarked"] == "S"] = 0
@@ -74,11 +76,10 @@ train_corr = train.corr()
 sns.heatmap(train_corr, annot=True,square=True, vmax=1, vmin=-1, center=0)
 
 pd.tools.plotting.scatter_matrix(test,figsize=(16,4))
-plt.savefig("test.png")
+plt.savefig("graph.png")
 
 
 sns.set_style('whitegrid')
-%matplotlib inline
 
 test.plot(x = "PassengerId", y = "Age",figsize=(16,4),alpha=0.5,kind = "Scatter")
 
